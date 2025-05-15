@@ -10,7 +10,7 @@ on:
     # - cron: '31 4 * * *'
   push:
     # branches: [ "main" ]
-    tags: [ 'v*.*.*' ]
+    tags: [ '*.*.*' ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -78,3 +78,5 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args:
+            GIT_TAG=${{ steps.meta.outputs.tags }}
