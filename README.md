@@ -13,7 +13,7 @@ You can pull the Docker image from GitHub Container Registry:
 
 - Specific version:
   ```bash
-  docker pull ghcr.io/cajuclc/openlinkhub-docker:v0.0.2
+  docker pull ghcr.io/cajuclc/openlinkhub-docker:0.5.5
   ```
 
 ## Running the Docker Container
@@ -33,13 +33,6 @@ Ensure you have created the `config.json` file in the path you provide. For deta
 All information and the core application instructions can be found on the official OpenLinkHub repository:  
 [OpenLinkHub GitHub Repository](https://github.com/jurkovic-nikola/OpenLinkHub/tree/main)
 
-## Future Work
+### Version Matching with GIT_TAG
 
-### To Do
-
-- **GitHub Workflow/Action**: Set up a GitHub Action to automate Docker builds with the following command:
-  ```bash
-  docker build --build-arg GIT_TAG=0.1.3-beta -t openlinkhub .
-  ```
-
-This setup will ensure your Docker image is up-to-date with the latest OpenLinkHub releases and streamlines the management and deployment of the software.
+The Docker build process now incorporates a `GIT_TAG` build argument, which aligns the Docker image version with the OpenLinkHub release version. This ensures consistency between the Docker image and the OpenLinkHub version it is based on. When you tag a new release, the `GIT_TAG` reflects this tag, and the Docker image is built using that specific version of OpenLinkHub, syncing both versions.
