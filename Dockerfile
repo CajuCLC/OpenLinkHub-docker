@@ -21,7 +21,6 @@ RUN apt-get update && \
 
 RUN mkdir -p /etc/modules-load.d
 RUN echo 'KERNEL=="i2c-0", MODE="0600", OWNER="openlinkhub"' | tee /etc/udev/rules.d/98-corsair-memory.rules
-RUN cat /etc/udev/rules.d/98-corsair-memory.rules
 RUN echo "i2c-dev" | tee /etc/modules-load.d/i2c-dev.conf
 
 COPY --from=build /app/OpenLinkHub/OpenLinkHub /opt/OpenLinkHub/
